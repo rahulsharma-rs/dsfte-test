@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSV Table</title>
+</head>
+<body>
+    <h1>Upload a CSV file</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Upload">
+    </form>
+    {% if table %}
+        {{ table|safe }}
+    {% endif %}
+</body>
+</html>
+This template includes an HTML form that allows the user to select a file to upload. When the form is submitted, the file is sent to the Flask app as a POST request. If a table is available (i.e., the user has submitted a file), it is displayed beneath the upload form.
+
+
+
+
+
