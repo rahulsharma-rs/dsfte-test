@@ -17,5 +17,20 @@ def index():
     else:
         return render_template('index.html')
 
+@app.route('/morgan', methods=['GET', 'POST'])
+def morganFP():
+    if request.method == 'POST':
+        file = request.files['file']
+        df = pd.read_csv(file)
+        df1 = df[['SMILES']]
+        result= fe_1mol.morganFingerPrint(df, nBits=1024)
+
+        table = result[['SMILES']+result.columns[10:].to_list()][:2].to_html(classes='table table-striped')
+
+        return render_template('index.html', table=table)
+    else:
+        return render_template('index.html')
+
+
 if __name__ == '__main__':
     app.run(debug=True)
