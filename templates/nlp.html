@@ -11,9 +11,9 @@
 	
 		<title>Drug computation</title>
 	 
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" /> -->
 	
-	<title>Home Page</title>
+	
 	<style>
 		body {
 			margin: 0;
@@ -55,7 +55,7 @@
 	</style>
 
 </head>
-<body>
+
 	<div class="side-drawer">
 		<div class="tab">
 			<a href="#">NLP BASED </a>
@@ -64,9 +64,9 @@
 			<a href="/morgan">Morgan FP </a>
 		</div>
 	</div>
-	<div class="content">
 
-    <h5 style="margin-top: 80px; margin-left: 38%;"><strong>Welcome to Smile to Property Extraction Portal</strong></h5>
+	<div class="content">
+    <h5 style="margin-top: 80px; margin-left: 35%;"><strong>Welcome to Smile to Property Extraction Portal</strong></h5>
     <div  style="margin-top: 50px; margin-left: 30%; ">
       <div class="d-flex flex-wrap">
         <div class="card m-2" style="background-color: rgb(255, 255, 255); width: 550px; ">
@@ -75,127 +75,98 @@
             <form method="post" action="/" enctype="multipart/form-data" style="margin-left: 8">
               <br>
               <input type="file" name="file" id="file">      
-              <button type="button" class="btn btn-primary  " style="background-color: #f1f0f0;"><input type="submit" value="Upload" style="color: black;"></button>
+             <input type="submit" value="Upload" style="color: black ; margin-left: 17%; ">
             </form>
+
+
+				  <!-- from her -->
+
+				  <div class="d-flex justify-content-center  flex-column;">
+					<div class="mb-3 " style="margin-top: 5%;">
+					
+					  <button id="download-button" type="button" class="btn btn-primary" style="background-color: azure; color: #000;" disabled>
+						<a href="{{ url_for('download_file', filename=filename) }}" style=" color: #000;">Downloads</a>
+					  </button>
+					  <button onclick="showGraph()" id="graph-button" class="btn btn-primary" style="background-color: azure; color: #000;" >Visualize Data</button>
+				
+				  
+				  </div>
+				  
+				  
+				</div>  
+			
+			
+			
+				  <!-- end here -->
+
+
+
+
         </div>
       </div>
+
+
 	  </div>
 	</div>
 	
+	<div id="plot_div_container" style="display: none;">
+		<div style="margin-left: 24%; margin-top: 5%;">{{ plot_div|safe }}</div>
+	  </div>
+
+
+
+
+
+
+
+
+  <script>
+    function showGraph() {
+      var graphDiv = document.getElementById("plot_div_container");
+      graphDiv.style.display = "block";
+    }
+  </script>
+
+
+
+
+
+
+	  <!-- end here -->
 	
 
-    <div class="container">
-		
-		<div style="margin-left: 45%; margin-top: 5%; margin-bottom: 5%;">
-		    <button id="download-button" type="button" class="btn btn-primary" style="background-color: azure; color: #000;" disabled >
-			<a href="{{ url_for('download_file', filename=filename) }}">Downloads</a>
-		  </button>
-		</div>
-		
-	  </div>
+	
+
+
+
+	  <div id="accordion" style="margin-top: 7%;">
+		<div class="card">
+		  <div class="card-header" id="headingOne">
+			<h5 class="mb-0">
+			  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+				How to use the App
+			  </button>
+			</h5>
+		  </div>
 	  
-
-
-
-	<div id="accordionExample5">
-		<div
-		  class="rounded-t-lg border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-neutral-800">
-		  <h2 class="mb-0" id="headingOne5">
-			<button
-			  class="group relative flex w-full items-center rounded-t-[15px] border-0 bg-white py-4 px-5 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-neutral-800 dark:text-white [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-primary [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-neutral-800 dark:[&:not([data-te-collapse-collapsed])]:text-primary-400 dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
-			  type="button"
-			  data-te-collapse-init
-			  data-te-target="#collapseOne5"
-			  aria-expanded="true"
-			  aria-controls="collapseOne5">
-			  How to use NLP Based
-			  <span
-				class="ml-auto -mr-1 h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:mr-0 group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
-				<svg
-				  xmlns="http://www.w3.org/2000/svg"
-				  fill="none"
-				  viewBox="0 0 24 24"
-				  stroke-width="1.5"
-				  stroke="currentColor"
-				  class="h-6 w-6">
-				  <path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-				</svg>
-			  </span>
-			</button>
-		  </h2>
-		  <div
-			id="collapseOne5"
-			class="!visible"
-			data-te-collapse-item
-			data-te-collapse-show
-			aria-labelledby="headingOne5">
-			<div class="py-4 px-5">
-				<ul>
+		  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+			<div class="card-body" style="color: #000;">
+			    <ul>
 					<li>Open the Flask application in your web browser by navigating to the appropriate URL.</li>
 					<li>Click on the "Select your SMILES CSV file" button to open the file selection dialog box.</li>
 					<li>Select the CSV file containing the SMILES strings you want to process and click "Upload".</li>
+					<li>Make sure DRUG NAME and SMILE are in capitals in your dataset.</li>
 					<li>Wait for the server to process the file, which might take some time depending on the size of the file and the complexity of the processing.</li>
-					<li>Once the processing is complete, a table will be displayed showing the processed data.</li>
-					<li>Click on the "Download" button to download the processed CSV file.</li>
+					<li>Once the processing is complete, Click on the "Download" button to download the processed CSV file.</li>
 					<li>Save the file to your local machine. The file will be saved with a unique filename generated by the program.</li>
-					<li>Close the web browser or navigate to a different URL to exit the Flask application.</li>
-				  </ul>
-			</div>
+				  </ul>			
+				</div>
 		  </div>
 		</div>
-		<div
-		  class="border border-t-0 border-neutral-200 bg-white dark:border-neutral-600 dark:bg-neutral-800">
-		  <h2 class="mb-0" id="headingTwo5">
-			<button
-			  class="group relative flex w-full items-center rounded-none border-0 bg-white py-4 px-5 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-neutral-800 dark:text-white [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-primary [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-neutral-800 dark:[&:not([data-te-collapse-collapsed])]:text-primary-400 dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
-			  type="button"
-			  data-te-collapse-init
-			  data-te-collapse-collapsed
-			  data-te-target="#collapseTwo5"
-			  aria-expanded="false"
-			  aria-controls="collapseTwo5">
-			  How to use Morgan Based
-			  <span
-				class="ml-auto -mr-1 h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:mr-0 group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
-				<svg
-				  xmlns="http://www.w3.org/2000/svg"
-				  fill="none"
-				  viewBox="0 0 24 24"
-				  stroke-width="1.5"
-				  stroke="currentColor"
-				  class="h-6 w-6">
-				  <path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-				</svg>
-			  </span>
-			</button>
-		  </h2>
-		  <div
-			id="collapseTwo5"
-			class="!visible hidden"
-			data-te-collapse-item
-			aria-labelledby="headingTwo5">
-			<div class="py-4 px-5">
-			  <strong>This is the second item's accordion body.</strong> It is
-			  hidden by default, until the collapse plugin adds the appropriate
-			  classes that we use to style each element. These classes control
-			  the overall appearance, as well as the showing and hiding via CSS
-			  transitions. You can modify any of this with custom CSS or
-			  overriding our default variables. It's also worth noting that just
-			  about any HTML can go within the <code>.accordion-body</code>,
-			  though the transition does limit overflow.
-			</div>
-		  </div>
-		</div>
-		
-	  </div>
-	  </div>
-	
+
+	</div>
+
+	  <!-- end here -->
 	  <script>
 		// get the filename value
 		var filename = "{{ filename }}";
@@ -217,6 +188,32 @@
 	  </script>
 	  
 
+	  <!-- code to hide graph button -->
+
+
+	  <script>
+		
+		var filename = "{{ filename }}";
+	  
+		
+		var downloadButton = document.getElementById('graph-button');
+		var downloadLink = document.getElementById('download-link');
+	  
+		
+		if (filename) {
+		 
+		  downloadLink.href = "{{ url_for('download_file', filename=filename) }}";
+		
+		  downloadButton.style.display = 'block';
+		} else {
+		
+		  downloadButton.style.display = 'none';
+		}
+	  </script>
+
+
+
+	  <!-- code ends here -->
     <!-- it ends here -->
 
     <!-- Optional JavaScript -->
@@ -225,7 +222,9 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-	<script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script> -->
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-locale-en-latest.min.js"></script>
  
 </body>
 </html>
