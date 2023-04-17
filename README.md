@@ -1,4 +1,4 @@
-# dsfte-test
+# Flask App to perform feature Extraction 
 ### The Flask web application consist of 2 features 
 
  * The NLP method for feature extraction
