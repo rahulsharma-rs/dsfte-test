@@ -1,5 +1,5 @@
 # Flask App to perform feature Extraction 
-### The Flask web application consist of 2 features 
+### This is a Web Application Build with Javascript as front-end and the backend is a Flask API
 
  * The NLP method for feature extraction
  * The morgan fingrePrint Extraction method
